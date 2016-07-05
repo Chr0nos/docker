@@ -15,7 +15,7 @@
 |KF_GAMELEN       | game len: 0: sort / 1: medium / 2: long / 3: custom                       |
 
 #to build the image:
-##docker build -t killingfloor --build-arg STEAM_LOGIN=login --build-arg STEAM_PASS=pass .
+####docker build -t killingfloor --build-arg STEAM_LOGIN=login --build-arg STEAM_PASS=pass .
 
 #to run the server:
-##docker run -d --name kf -p 8075:8075 -p 7707:7707/udp -p 7708:7708/udp -p 20560:20560/udp -p 28852:28852 killingfloor
+####docker run -d --name kf -p 8075:8075 -p 7707:7707/udp -p 7708:7708/udp -p 20560:20560/udp -p 28852:28852 killingfloor
