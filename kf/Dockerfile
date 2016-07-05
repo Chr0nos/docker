@@ -16,14 +16,14 @@ RUN apt-get update && \
 	mkdir -p /kf/server
 
 WORKDIR /kf
+COPY setup.sh /kf/setup.sh
 RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && \
 	tar -xf steamcmd_linux.tar.gz && \
 	rm -f steamcmd_linux.tar.gz && \
 	chmod +x steamcmd.sh && \
 	echo "killall ucc-bin" > stop.sh && \
-	chmod +x stop.sh && \
 	echo "cd /kf/server/System && ./ucc-bin KF-BioticsLab.rom?game=KFmod.KFGameType -nohomedir ini=$KF_CONFIG" > start.sh && \
-	chmod +x start.sh
+	chmod +x start.sh stop.sh setup.sh
 
 #i split this command in case of login failure, to just redo this one
 RUN ./steamcmd.sh $STEAM_GUARD +login $STEAM_LOGIN $STEAM_PASS +force_install_dir /kf/server +app_update 215360 validate +quit
