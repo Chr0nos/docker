@@ -11,6 +11,7 @@ then
 	sed -i s/ServerName=/ServerName=$KF_SERVER_NAME/g $KF_CONFIG
 	sed -i s/AdminEmail=/AdminEmail=$KF_MAIL/g $KF_CONFIG
 	sed -i s/KFGameLength=/KFGameLength=$KF_GAMELEN/g $KF_CONFIG
+	sed -i s/GameDifficulty=/GameDifficulty=$KF_DIFFICULTY/g $KF_CONFIG
 	@echo "Running server"
 	./ucc-bin server KF-BioticsLab.rom?game=KFmod.KFGameType -nohomedir ini=$KF_CONFIG
 else

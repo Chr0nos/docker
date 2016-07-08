@@ -7,7 +7,7 @@ ENV KF_LOGIN=admin \
 	KF_GAMELEN=2 \
 	KF_DIFFICULTY=7.0 \
 	KF_CONFIG=/kf/server/System/killingfloor-server.ini \
-	term=xterm
+	TERM=xterm
 
 WORKDIR /
 RUN apt-get update && \
@@ -26,6 +26,14 @@ RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.
 
 #i split this command in case of login failure, to just redo this one
 RUN ./steamcmd.sh $STEAM_GUARD +login $STEAM_LOGIN $STEAM_PASS +force_install_dir /kf/server +app_update 215360 validate +quit
+
+WORKDIR /kf/server/System
+RUN sed -i s/ServerPackages/KFChar/ServerPackages=KFChar\nServerPackages=MutKFAntiBlocker\nServerPackages=KFNoDramaMut/g $KF_CONFIG && \
+	curl -O http://www.goodmods.com/Killing-Floor/KFAntiBlocker_1.1/MutKFAntiBlocker.u && \
+	curl -O http://www.goodmods.com/Killing-Floor/KFAntiBlocker_1.1/MutKFAntiBlocker.ucl && \
+	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFNoDramaMut/KFNoDramaMut.int && \
+	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFNoDramaMut/KFNoDramaMut.u && \
+	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFNoDramaMut/KFNoDramaMut.ucl
 
 EXPOSE 7707/udp \
 	7708/udp \
