@@ -2,7 +2,7 @@ FROM debian:latest
 MAINTAINER snicolet@student.42.fr
 
 ARG STEAM_LOGIN
-ARG STEAN_PASS
+ARG STEAM_PASS
 ARG STEAM_GUARD
 
 #killing floor server preferences
