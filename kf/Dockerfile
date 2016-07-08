@@ -46,4 +46,4 @@ EXPOSE 7707/udp \
 	8075 \
 	20560/udp
 
-ENTRYPOINT ["/kf/server/setup.sh"]
+ENTRYPOINT ["/kf/setup.sh"]
