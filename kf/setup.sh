@@ -3,7 +3,10 @@ if (test -d /kf/server/System)
 then
 	cd /kf/server/System
 	cp -v Default.ini ${KF_CONFIG}
-	sed -i s/ServerPackages=KFChar/ServerPackages=KFChar\nServerPackages=MutKFAntiBlocker\nServerPackages=KFNoDramaMut\nServerPackages=KFPatHPLeft/g ${KF_CONFIG}
+	sed -i s/ServerPackages=KFChar/ServerPackages=KFChar\
+		ServerPackages=MutKFAntiBlocker\
+		ServerPackages=KFNoDramaMut\
+		ServerPackages=KFPatHPLeft/g ${KF_CONFIG}
 	sed -i s/AdminPassword=/AdminPassword={$KF_PASS}/g ${KF_CONFIG}
 	sed -i s/GamePassword=/GamePassword=${KF_PLAYPASS}/g ${KF_CONFIG}
 	sed -i s/AdminName=/AdminName=$KF_LOGIN/g ${KF_CONFIG}
@@ -13,7 +16,6 @@ then
 	sed -i s/AdminEmail=/AdminEmail=${KF_MAIL}/g ${KF_CONFIG}
 	sed -i s/KFGameLength=/KFGameLength=${KF_GAMELEN}/g ${KF_CONFIG}
 	sed -i s/GameDifficulty=/GameDifficulty=${KF_DIFFICULTY}/g ${KF_CONFIG}
-	@echo "Running server"
 	./ucc-bin server KF-BioticsLab.rom?game=KFmod.KFGameType -nohomedir ini=${KF_CONFIG}
 else
 	echo "Do not run this script outside the docker image"
