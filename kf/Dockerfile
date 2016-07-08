@@ -25,7 +25,7 @@ RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.
 	chmod +x setup.sh steamcmd.sh
 
 #i split this command in case of login failure, to just redo this one
-RUN ./steamcmd.sh $STEAM_GUARD +login $STEAM_LOGIN $STEAM_PASS +force_install_dir /kf/server +app_update 215360 validate +quit
+RUN ./steamcmd.sh +login $STEAM_LOGIN $STEAM_PASS $STEAM_GUARD +force_install_dir /kf/server +app_update 215360 validate +quit
 
 WORKDIR /kf/server/System
 RUN sed -i s/ServerPackages/KFChar/ServerPackages=KFChar\nServerPackages=MutKFAntiBlocker\nServerPackages=KFNoDramaMut\nServerPackages=KFPatHPLeft/g $KF_CONFIG && \
