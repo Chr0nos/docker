@@ -25,7 +25,6 @@ COPY setup.sh /kf/setup.sh
 RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && \
 	tar -xf steamcmd_linux.tar.gz && \
 	rm -f steamcmd_linux.tar.gz && \
-	echo "cd /kf/server/System && ./ucc-bin KF-BioticsLab.rom?game=KFmod.KFGameType -nohomedir ini=$KF_CONFIG" > start.sh && \
 	chmod +x setup.sh steamcmd.sh
 
 #i split this command in case of login failure, to just redo this one
