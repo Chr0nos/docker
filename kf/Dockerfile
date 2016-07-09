@@ -15,13 +15,13 @@ ENV KF_LOGIN=admin \
 
 WORKDIR /
 RUN apt-get update && \
-	apt-get install -y lib32gcc1 curl lib32stdc++6 vim htop psmisc screen && \
+	apt-get install -y lib32gcc1 curl lib32stdc++6 vim htop psmisc screen patch && \
 	rm -rf /var/lib/apt/lists/* && \
 	echo "syntax on\nset nu\nset ruler" > ~/.vimrc && \
 	mkdir -p /kf/server
 
 WORKDIR /kf
-COPY setup.sh /kf/setup.sh
+COPY setup.sh config.patch /kf/
 RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && \
 	tar -xf steamcmd_linux.tar.gz && \
 	rm -f steamcmd_linux.tar.gz && \

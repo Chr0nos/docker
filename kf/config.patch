@@ -1,0 +1,21 @@
+--- Default.ini	2016-07-09 14:25:13.000000000 +0200
++++ killingfloor-server.ini	2016-07-09 14:28:46.000000000 +0200
+@@ -126,6 +126,9 @@
+ ServerPackages=ROInterface
+ ServerPackages=KFMod
+ ServerPackages=KFChar
++ServerPackages=MutKFAntiBlocker
++ServerPackages=KFNoDramaMut
++ServerPackages=KFPatHpLeft
+ 
+ [WinDrv.WindowsClient]
+ WindowedViewportX=800
+@@ -493,7 +496,7 @@
+ ApplicationPaths[0]=/ServerAdmin
+ Applications[1]=xWebAdmin.UTImageServer
+ ApplicationPaths[1]=/images
+-bEnabled=False
++bEnabled=True
+ ListenPort=8075
+ 
+ [Engine.Console]
