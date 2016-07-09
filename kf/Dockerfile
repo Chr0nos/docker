@@ -21,7 +21,7 @@ RUN apt-get update && \
 	mkdir -p /kf/server
 
 WORKDIR /kf
-COPY setup.sh config.patch /kf/
+COPY setup.sh kf.ini /kf/
 RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz && \
 	tar -xf steamcmd_linux.tar.gz && \
 	rm -f steamcmd_linux.tar.gz && \
@@ -31,7 +31,8 @@ RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.
 RUN ./steamcmd.sh +login ${STEAM_LOGIN} ${STEAM_PASS} ${STEAN_GUARD} +force_install_dir /kf/server +app_update 215360 validate +quit
 
 WORKDIR /kf/server/System
-RUN	curl -O http://www.goodmods.com/Killing-Floor/KFAntiBlocker_1.1/MutKFAntiBlocker.u && \
+RUN cp -v /kf/kf.ini /kf/server/System.Default.ini
+	curl -O http://www.goodmods.com/Killing-Floor/KFAntiBlocker_1.1/MutKFAntiBlocker.u && \
 	curl -O http://www.goodmods.com/Killing-Floor/KFAntiBlocker_1.1/MutKFAntiBlocker.ucl && \
 	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFNoDramaMut/KFNoDramaMut.int && \
 	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFNoDramaMut/KFNoDramaMut.u && \

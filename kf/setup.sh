@@ -3,8 +3,7 @@ if (test -d /kf/server/System)
 then
 	cd /kf/server/System
 	cp -v Default.ini ${KF_CONFIG}
-	patch -p0 ${KF_CONFIG} < /kf/config.patch
-	sed -i s/AdminPassword=/AdminPassword={$KF_PASS}/g ${KF_CONFIG}
+	sed -i s/AdminPassword=/AdminPassword=${KF_PASS}/g ${KF_CONFIG}
 	sed -i s/GamePassword=/GamePassword=${KF_PLAYPASS}/g ${KF_CONFIG}
 	sed -i s/AdminName=/AdminName=$KF_LOGIN/g ${KF_CONFIG}
 	sed -i s/CharSet="iso-8859-1"/CharSet="utf-8"/g UWeb.int
