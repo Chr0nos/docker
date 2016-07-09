@@ -15,7 +15,7 @@ ENV KF_LOGIN=admin \
 
 WORKDIR /
 RUN apt-get update && \
-	apt-get install -y lib32gcc1 curl lib32stdc++6 vim htop psmisc screen patch && \
+	apt-get install -y lib32gcc1 curl lib32stdc++6 vim htop psmisc && \
 	rm -rf /var/lib/apt/lists/* && \
 	echo "syntax on\nset nu\nset ruler" > ~/.vimrc && \
 	mkdir -p /kf/server
