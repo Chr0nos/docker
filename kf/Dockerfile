@@ -31,7 +31,7 @@ RUN curl -O https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.
 RUN ./steamcmd.sh +login ${STEAM_LOGIN} ${STEAM_PASS} ${STEAN_GUARD} +force_install_dir /kf/server +app_update 215360 validate +quit
 
 WORKDIR /kf/server/System
-RUN cp -v /kf/kf.ini /kf/server/System.Default.ini
+RUN cp -v /kf/kf.ini /kf/server/System.Default.ini && \
 	curl -O http://www.goodmods.com/Killing-Floor/KFAntiBlocker_1.1/MutKFAntiBlocker.u && \
 	curl -O http://www.goodmods.com/Killing-Floor/KFAntiBlocker_1.1/MutKFAntiBlocker.ucl && \
 	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFNoDramaMut/KFNoDramaMut.int && \
