@@ -44,7 +44,7 @@ RUN cp -v /kf/kf.ini /kf/server/System.Default.ini && \
 	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFMutKillMessagev3/MutKillMessage.ucl && \
 	curl -O http://thirdreich.ru/Killing_Floor/Mutators/KFMutKillMessagev3/MutKillMessage.ini && \
 	curl -O http://thirdreich.ru/Killing_Floor/Mutators/SuperZombie_v2.2.1-fix/SuperZombie_v2.2.1-fix/system/SuperZombieMut.u && \
-	curl -O http://thirdreich.ru/Killing_Floor/Mutators/SuperZombie_v2.2.1-fix/SuperZombie_v2.2.1-fix/system/SuperZombieMut.ucl &&
+	curl -O http://thirdreich.ru/Killing_Floor/Mutators/SuperZombie_v2.2.1-fix/SuperZombie_v2.2.1-fix/system/SuperZombieMut.ucl && \
 	curl http://thirdreich.ru/Killing_Floor/Mutators/SuperZombie_v2.2.1-fix/SuperZombie_v2.2.1-fix/textures/SuperZombieMut.utx > /kf/server/Textures/SuperZombieMut.utx
 
 EXPOSE 7707/udp \
