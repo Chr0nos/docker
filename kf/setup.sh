@@ -3,10 +3,7 @@ if (test -d /kf/server/System)
 then
 	cd /kf/server/System
 	cp -v Default.ini ${KF_CONFIG}
-	sed -i s/ServerPackages=KFChar/ServerPackages=KFChar\
-		ServerPackages=MutKFAntiBlocker\
-		ServerPackages=KFNoDramaMut\
-		ServerPackages=KFPatHPLeft/g ${KF_CONFIG}
+	sed -i "s/ServerPackages=KFChar/ServerPackages=KFChar\nServerPackages=MutKFAntiBlocker\nServerPackages=KFNoDramaMut\nServerPackages=KFPatHPLeft/g" ${KF_CONFIG}
 	sed -i s/AdminPassword=/AdminPassword={$KF_PASS}/g ${KF_CONFIG}
 	sed -i s/GamePassword=/GamePassword=${KF_PLAYPASS}/g ${KF_CONFIG}
 	sed -i s/AdminName=/AdminName=$KF_LOGIN/g ${KF_CONFIG}
