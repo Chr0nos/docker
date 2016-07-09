@@ -13,6 +13,7 @@
 |KF_PASS          | set the admin password                                                    |
 |KF_PLAYPASS      | set a passowrd to let players to come on the server, don't set for none   |
 |KF_GAMELEN       | game len: 0: sort / 1: medium / 2: long / 3: custom                       |
+|KF_DIFFICULTY    | set the game difficulty                                                   |
 
 #to build the image:
 ####docker build -t killingfloor --build-arg STEAM_LOGIN=login --build-arg STEAM_PASS=pass .
